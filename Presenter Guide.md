@@ -15,12 +15,8 @@ fit. Details concerning the key speaker points and timing can be found at the
 
 ## Starting out: Hello World and variables
 
-In the computer programming world, the most common and stereotypical first
-tutorial is learning how to print, "Hello World!" to the console. In Java, we
-can print a line of code to the console using the `System.out.println()` function.
-
-Go to [repl.it](https://repl.it) and you will immediately be greeted with some
-code that looks like this:
+* Stereotypical Hello World output
+* Get everyone to open repl.it - default program shown
 ```Java
 class Main {
   public static void main(String[] args) {
@@ -28,36 +24,25 @@ class Main {
   }
 }
 ```
-Press the play button and you can see that "Hello world!" is printed to the console.
+* Press play to show output
 ```
 Hello world!
 ```
-
-Take a moment to look at how the code inside is structured. Things tend to be
-contained within braces. Everything inside the `Main` class is contained by curly
-braces "{}", and so is everything in `main`.
-
-Let's look at `println()` - ignore `System.out` for now. `println()` is a
-_method_, and it takes whatever you supply it and prints it to the console. Methods
-are just blocks of code that when called, do certain things for you. Usually the
-name tells you what it does; for example, `println()` prints a line of text. The
-thing that you supply in particular is contained within the parentheses "()".
-Notice that after calling a method, you must add a semicolon ";" to the end.
-_Always remember to put the semicolon!_ A semicolon ";" in Java is like a period
-in the English language. Like how periods end sentences, semicolons end any
-statement in Java.
-
-Take a look at `public static void main(String[] args)`. It's quite a mouthful.
-Don't worry about what `public static void` or `String[] args` means - all you
-need to know is that `main()` is also a method. Whenever you press play,
-everything inside the `main()` method is called and run by Java.
-
-Why are there curly brackets after `main()` but not `println()`? The difference
-is `println()` is already written for you to use, but you must tell Java what
-`main()` does yourself.
-
-Time to spice it up a little. First, let's add a variable that will hold some text
-for us:
+* Everything in class Main contained within curly braces
+  * Think of Main as your entire program
+* Describe println() - talk about methods
+  * Methods are simply blocks of code that do stuff for you
+  * Methods can have input + output
+  * All of your code that actually _does stuff_ is contained within methods
+* Give semicolon talk!
+  * Semicolons are like periods in programming - periods end sentences, semicolons
+  end statements.
+* Describe main() - talk about defining methods
+  * Code that main() runs is inside curly braces
+  * When you start up your program, everything in main is called and run by Java
+  * In main(), you define what the program does and write instructions
+* Introduce variables - type up on screen and explain each keyword briefly as you
+type: "String" is just text, someText is a name, = assigns the variable to something.
 ```Java
 class Main {
   public static void main(String[] args) {
@@ -66,19 +51,10 @@ class Main {
   }
 }
 ```
-Let's break down the code that I added. The first word, `String`, is the type of
-data the variable will hold - in this case, it's a string of characters. A `String`
-can be any text you want it to be.
-
-Next, `someText` is the name of my variable. Think of the variable as a place to
-store my data. Instead of typing out the entire text, we can just call someText
-to conveniently fetch our `String` for us.
-
-Finally, the `=` and the text surrounded by quotes. `String someText` tells us our
-variable type and the name, while `= "Hey, I'm a string of characters!"` tells Java
-what to actually store in that string.
-
-What can we do next? Well, let's try to print our string to the console like so:
+* All variables must have a data type - an integer cannot hold a String, a String
+cannot hold an integer, etc.
+* Describe someText as a shortcut/alias for what is held inside.
+* Print string to console
 ```Java
 class Main {
   public static void main(String[] args) {
@@ -87,46 +63,37 @@ class Main {
   }
 }
 ```
-Press run and you will see our `String`:
 ```
 Hey, I'm a string of characters!
 ```
-Notice how we removed the quotes. Quotes signify regular text in Java. This means
-that if we surrounded it with quotes, then it would print:
+* Quotes signify regular text - if you surround with text, someText is treated as
+plain text instead of a variable
 ```
 someText
 ```
-Java treats someText like _literal text_ instead of a variable!
 
 
 ## Getting user input from the console, and using logic
 
-Printing text to the console is cool and all, but it gets boring. Imagine making
-something that says, "Hello, _your name here_!". If you want to share it with your
-friend that can't edit the original code to change the text, how are you going to
-make it say their name? We're going to solve this problem by getting user input
-from the console.
-
-The first thing you're going to need is to add the following line to the _very
-start_ of your code:
+* Use example of repeating the user's name - user input is important so someone
+can actually use your code
+  * We will be getting it from the console - someone will type into the console
+* Show import statement onscreen
 ```Java
 import java.io.*;
 ```
-Don't worry about what this means for now - just know that we need this in order
-to use Java's console input.
-
-Now, you need to make a variable for the console. Let's call it `c`:
+* Briefly describe import by saying it lets you use stuff outside of your program.
+* Create console() variable onscreen
 ```Java
 public static void main(String[] args) {
   Console c = System.console();
 }
 ```
-Did you notice that we used a method? Methods, apart from doing specific
-instructions, can return a value. `System.console()` simply gives us the `Console`
-object that we need to use.
-
-We're ready to get user input now! Let's ask for a name and say hello with the
-following code:
+* Talk about using a method that returns the system console, then assigning it
+to variable
+* Show the readLine() and println() on screen - briefly describe new methods and
+structure as you type
+  * We assign name to whatever the user types, and then print it out in println
 ```Java
 public static void main(String[] args) {
   Console c = System.console();
@@ -134,22 +101,11 @@ public static void main(String[] args) {
   System.out.println("Hello, "+name);
 }
 ```
-The next line of code makes a variable for the name of the person, and sets it
-to what `c.readLine()` returns. This will print out the message that you give it,
-wait until the user types something and presses enter, and return whatever they
-typed.
-
-Lastly, the `println()` prints out _"Hello, whatever name was typed here"_. In
-order to print it all as one piece of text, we join them together using the plus
-sign.
-
-This opens up lots of possibilities. But what if you want to add some logic to your
-program? You don't just want to print out whatever your user types in, you want
-to _do something_ with that input. We're going to learn a little on how we can
-do this using `if` statements and `equals()`.
-
-Let's make it so our program will only greet us if our name is Alex. We need to
-make some small changes to what we have so far:
+* Talk about using + sign to join text together
+* There isn't much you can do other than print text - time to do something with
+the text
+* Introduce if statements and equals
+* Sample program that will check if your name is Alex
 ```Java
 public static void main(String[] args) {
   Console c = System.console();
@@ -161,20 +117,12 @@ public static void main(String[] args) {
   }
 }
 ```
-What have we added? There's a new block called `if`, and it does exactly what you
-think it does. If whatever's in the parentheses "()" is true, then the code in
-the curly brackets "{}" is executed.
-
-`else` also does what you think it does - if the condition in the if isn't satisfied,
-execute whatever's in this block.
-
-What does `equals()` do? All we're doing is checking if `name` is equal to whatever
-you ask `equals()` to test in the parentheses.
-
-Now that you've added this, let's test the outputs and it works as expected:
-```
-Demo output here...
-```
+* Describe what an if statement does - checks if the condition is true, and
+then executes whatever code is inside its curly braces
+* Describe else - only executes if the if statement fails
+* Describe equals as how you compare pieces of text - it's a method that returns
+true or false
+* Show the output by demoing
 Nice! Now we can do logical things with our user input!
 
 Have a few minutes to yourselves to make something within your groups. If you're
@@ -358,23 +306,42 @@ then put them into a list of Strings using the Scanner.
 Let's make our scanner first. Make sure you also make at least another file in repl.it
 and fill it up with content.
 ```Java
+static String[] answers = new String[6];
 public static void main(String[] args) {
-  String[] answers = String[6];
-
   Console c = System.console();
   Scanner sc = new Scanner(new BufferedReader(new FileReader("foreststory.txt")));
   sc.useDelimiter("\n\n");
 }
 ```
-There's a lot of nested `new`s. Don't worry about that, they're just stupid and aggressive.
+We make an array to hold our answers, but we don't use the curly brace - we use
+`new`. With this, we create an empty array of length 6. Leave it outside the
 
-You might have noticed that at the end of the whole thing, there is a line that says sc.useDelimiter(\n\n);.
-All this means is that Java will now use 2 white break lines. Next, lets make a loop to insert paragraphs into the array:
+There's a lot of nested `new`s for the scanner. Don't worry about that.
+
+You might have noticed that at the end of the whole thing, there is a line that
+says `sc.useDelimiter("\n\n");`. This line tells Java to break up the text into
+parts every two newlines. We need this in order to get paragraphs.
+
+Next, let's add the following code to go through the the text and add items to the
+array.
 ```Java
-int count = 0;
-while(true) {
-  if (sc.hasNext()) answers[count];
-}
+static String[] answers = String[6];
+public static void main(String[] args) {
+  Console c = System.console();
+  Scanner sc = new Scanner(new BufferedReader(new FileReader("foreststory.txt")));
+  sc.useDelimiter("\n\n");
 
-
+  int count = 0;
+  while(sc.hasNext()) {
+    answers[count];
+    count++;
+  }
 }
+```
+What did I do? I made a `while` loop that will keep executing, as long as there
+is something next left to read from the file. I use an integer variable called
+`count` to place each paragraph from the file into the array, in indices 0 through
+5.
+
+Now, let's start making the actual game. First, let's make two functions that
+will hel
