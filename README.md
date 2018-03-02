@@ -9,10 +9,10 @@ how to:
 
 Please refer to these links if you would like to find some specific code from
 the workshop:
-* Complete scanner code
-* Echo game
-* Magic 8 Ball game
-* Choose-your-own-story starter code
+* [Using console input demo](https://repl.it/@epix/Console-Input-Demo)
+* [Echo game](https://repl.it/@epix/Echo-Game)
+* [Magic 8 Ball game](https://repl.it/@epix/Magic-8-Ball)
+* [Choose-your-own-story starter code](https://repl.it/@epix/Choose-Your-Own-Story-Starter-Code)
 
 ## Starting out: Hello World and getting input
 
