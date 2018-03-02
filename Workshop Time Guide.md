@@ -15,8 +15,10 @@ get their laptops out.
   * Ask everyone to open a browser and type in "repl.it"
   * Open up repl.it and show output on projector for those without laptop
   * Brief on boring stuff - structure of Java for at most _80-90 seconds_: 10
-    seconds for class Main curly braces, 30 seconds for main() method, 30
-    seconds for println() method, 10 seconds for semicolons
+    seconds for class Main curly braces, 40 seconds for println() method, 10
+    seconds for semicolons, 30 seconds for main() method.
+    * "Does anyone want to take a guess at why there are curly brackets after
+    main(), but not after println()?"
   * Add variable and explain the variable declaration for at most _20 seconds_
   * Demo printing the variable, then demo parentheses for _15 seconds_
 * **8min** 
