@@ -13,6 +13,5 @@ Please refer to these links if you would like to demo the code from the workshop
 * [Magic 8 Ball game](https://repl.it/@epix/Magic-8-Ball)
 * [Choose-your-own-story starter code](https://repl.it/@epix/Choose-Your-Own-Story-Starter-Code)
 
-If you would like to present this workshop, please refer to the [Workshop Time Guide]
-(https://github.com/epixtallion/HTF-Java-Workshop/blob/master/Workshop%20Time%20Guide.md)
+If you would like to present this workshop, please refer to the [Workshop Time Guide](https://github.com/epixtallion/HTF-Java-Workshop/blob/master/Workshop%20Time%20Guide.md)
 and the [Presenter Guide](https://github.com/epixtallion/HTF-Java-Workshop/blob/master/Presenter%20Guide.md).
