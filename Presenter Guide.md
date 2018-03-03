@@ -17,6 +17,8 @@ fit. Details concerning the key speaker points and timing can be found at the
 
 * Stereotypical Hello World output
 * Get everyone to open repl.it - default program shown
+  * Encourage them to make an account so they can access their code even after
+  the workshop
 ```Java
 class Main {
   public static void main(String[] args) {
@@ -123,31 +125,19 @@ then executes whatever code is inside its curly braces
 * Describe equals as how you compare pieces of text - it's a method that returns
 true or false
 * Show the output by demoing
-Nice! Now we can do logical things with our user input!
-
-Have a few minutes to yourselves to make something within your groups. If you're
-out of inspiration, go to https://tinyurl.com/hackthefog-java and look at the
-Echo Game sample.
+* Give them their own time, have Echo Game example link ready
+  * https://github.com/epixtallion/HTF-Java-Workshop
 
 
 ## Arrays and randomness
 
-Things are going to start picking up pace from here. Let's settle down and learn
-how to make a Magic 8 Ball in Java.
+* Introduce next topic
+* Activity to discuss how to make a Magic 8 Ball
 
-Have a few minutes to talk with the people nearby on the steps to implementing
-a Magic 8 Ball with code. Do not write any real code, just think of the steps.
-For example, what responses would you have? Do you need a list of them? Do you
-go through each answer in order or do you select one randomly?
 **_After 2.5 minutes_**
-Now that you've discussed, let me hear some of your ideas.
-**_Call on hands_**
-These are all great ideas. Let me teach you how I would make a Magic 8 Ball in
-Java.
 
-First, I would definitely need a list of answers to give to questions. Since my
-laptop cannot fully form coherent sentences randomly, let's make a list using
-something called an _array_.
+* **_Call on hands_**
+* Introduce an array as a list to hold answers (explain as you go)
 ```Java
 public static void main(String[] args) {
   String[] answers = {"Yes.", "No.", "Maybe.", "Probably not.", "I'm not sure."};
@@ -160,13 +150,7 @@ public static void main(String[] args) {
   }
 }
 ```
-What I did here was make an array of `String`s called `answers`. In order to
-indicate that it is an array, I put square brackets "[]" after the data type.
-I then specified the contents of the list by separating each value with commas
-and surrounding them with curly braces "{}".
-
-How do you use an array? Well, you can refer to an item in an array through its
-index like so:
+* Explain referring to item in array by index
 ```Java
 public static void main(String[] args) {
   String[] answers = {"Yes.", "No.", "Maybe.", "Probably not.", "I'm not sure."};
@@ -175,15 +159,9 @@ public static void main(String[] args) {
   System.out.println(answers[0]); //Prints the first element
 }
 ```
-Strangely, if you tell Java to get index 0, it gives you the first element. That's
-because Java's counting generally starts at 0. With this in mind, can anybody tell
-me what index "Probably not." is at?
-
-Good. Keep this in mind when you work with arrays. Now that we have an array and
-know how to use it, let's add the randomness!
-
-In order to use randomness, we're going to need a new import line. Add the import
-at the top of your code, and then make a random index number with this code:
+* Ask if anyone can tell me how to get to index of certain answer
+* Show import for Math for randomness
+* Explain random statement as you go
 ```Java
 import java.io.*;
 import java.lang.Math;
@@ -199,78 +177,55 @@ public static void main(String[] args) {
   System.out.println(answers[index]);
 }
 ```
-There's a few new things here. Firstly, the data type of our index variable is
-`int`: this just means a whole number. Ignore the random expression - just know
-that it will generate a random number between 0 and 4.
-
-We also changed the 0 in the square brackets "[]" to `index`. Since it's going to
-be a whole number, this is perfectly acceptable! Generally, what this code does
-is print a random message from `answers`.
-
-We're pretty much done with this now! Go ahead and try out your code in repl.it!
-
-You can have a few minutes to try out something new with your new abilities in
-making arrays and random numbers. Maybe add onto what you already made?
+* Explain how the randomness works step by step
+  * Math.random() makes a random decimal between 0 and 1 (but is never 1)
+  * Multiply by 5 to get a random number between 0 and 5
+  * Put a parentheses around the whole thing, then put this special keyword
+  called a cast that will turn the decimal into a whole number
+  * It doesn't round, (int) just gets rid of the numbers after the decimal
+* Have people test their code on repl.it
 
 
 ## Functions
 
-This will be mostly a transition section.
-
-All of you have seen methods already - you've coded with the `main()` function,
-used functions like `println()` and `equals()`. You have a vague idea of what they
-are - they're chunks of code that you can call on, and you can optionally feed
-them input or get an output from them.
-
-Methods can be super useful in making your code shorter, and organizing your code
-so you know what everything is doing.
-
-Let's make our own method. We can start with something simple - let's make a method
-that just prints, "My name is " + a certain input. Outside of the main method, but
-still inside the Main class, let's write the following code:
+* Review what a method/function is - block of code you can call on,
+and optionally give an input and output
+* Explain utility of methods
+  * Good for organizing code and making shorter
+* Type up a sample method
 ```Java
 static void myName(){
 }
 ```
-Let's break this down bit by bit: what is `static`? Though we will not go into too
-much detail, `static` is just one of the descriptors of the method. With `static`,
-we can simply call on our method by writing a line of code that says `myName();`.
-
-Every function must have a return type, but doesn't have to return anything. If
-your function has an output, you must specify what kind of output it is. Is it a
-`String`? An `int`? In our case, we don't want to return anything, so we just say
-`void`.
-
-The parentheses can have arguments for input. We can specify special variables called
-arguments that are set each time we call the method. Inside the curly braces, we
-put all of the actual code instructions we want our computer to execute.
-
-Time to add an argument. Modify your code as such:
+* Explain static and void - static so you can just call on your method like
+`myName()`, void because the function doesn't return anything
+* Explain what an argument is - it's the input to the function.
+  * In println(), you put what you want to print inside the parentheses
+  * When writing a function, you put the variable for the argument inside
+  the parentheses
+* Add name argument
 ```Java
 static void myName(String name){
 }
 ```
-Now, whenever someone calls `myName`, they must specify a name in the form of a
-`String`. We can do whatever we want with this `String`. For example, following
-the original intent of this lesson:
+* Add code to inside - print a line that says "My name is "+name
 ```Java
 static void myName(String name){
   System.out.println("My name is "+name);
 }
 ```
-Voila! You have created your own function. Now in `main()`, call this function like
-so:
+* Call the function in main()
 ```Java
 public static void main (String[] args){
   myName("Alex");
 }
 ```
-The code inside `myName` executes, and you get your line of output:
 ```
 My name is Alex
 ```
 
-Let's try returning something now. Replace the word `void` with `String`:
+* Return a String - change return type to String
+* Change println to return keyword
 
 ```Java
 static String myName(String name){
@@ -278,52 +233,47 @@ static String myName(String name){
 }
 ```
 
-What does our code do now? Now, it just returns the String instead of printing it
-or anything. You can see this by trying to play the program - nothing shows up.
-
-However, we can still create output with this. We could do something as such:
+* Explain how to use the method in this instance
 ```Java
 public static void main (String[] args) {
   System.out.println(myName("Alex"));
 }
 ```
-With this, we actually print something. It's just that this time, we do it ourselves.
+
 
 ## Reading a file with Scanner
 
-This is the most advanced topic so far in this presentation so I advise you bear
-with me. In order to create our Choose-your-own-story program, we're going to need
-to apply every single concept we've learned so far.
+* Go over how we will make a create-your-own story
+  * Need an array to hold all of the parts of the story
+  * We will read our parts of the story from a text file
+* Introduce Scanner - a thing in Java that will read from a file
+* Step by step introduce the declaration
+  * We will make a scanner and assign to variable
+  * Scanner sc is our variable - Scanner will be initialized from a BufferedReader
+  that is a middle-ground between the scanner and the actual file reader
+  * BufferedReader inside parentheses - this will be initialized finally from a
+  FileReader - this reads the file's text at the lowest level
+  * New statement - add useDelimiter() to "\n\n" so the Scanner will break up
+  each part after you type enter twice
+* After this, insert answers array, which we will declare in a different way -
+since we won't type up our values, we don't use curly braces. It is size of 5,
+so it will have 5 inside the brackets
 
-We're going to need an Array of `String`s so we can refer to each one in a list
-easily. After that, we're going to need to take user input so we can interpret
-what option they chose using `equals()`. We're even gonna make a few functions.
-
-But one thing we're missing that we haven't learned yet are Scanners. Scanners in
-Java just read a file of text. We're going to create a story with multiple paragraphs,
-then put them into a list of Strings using the Scanner.
-
-Let's make our scanner first. Make sure you also make at least another file in repl.it
-and fill it up with content.
 ```Java
-static String[] answers = new String[6];
+static String[] answers = new String[5];
 public static void main(String[] args) {
   Console c = System.console();
   Scanner sc = new Scanner(new BufferedReader(new FileReader("foreststory.txt")));
   sc.useDelimiter("\n\n");
 }
 ```
-We make an array to hold our answers, but we don't use the curly brace - we use
-`new`. With this, we create an empty array of length 6. Leave it outside the
 
-There's a lot of nested `new`s for the scanner. Don't worry about that.
-
-You might have noticed that at the end of the whole thing, there is a line that
-says `sc.useDelimiter("\n\n");`. This line tells Java to break up the text into
-parts every two newlines. We need this in order to get paragraphs.
-
-Next, let's add the following code to go through the the text and add items to the
-array.
+* Introduce a while loop - it keeps going so long as the condition inside of the
+parentheses is true
+* We will need to keep looping through the scanner as long as there is something
+left to read - use hasNext(), which returns true if there is something left to
+read
+* Add count variable so we can place each paragraph in an index in the array
 ```Java
 static String[] answers = String[6];
 public static void main(String[] args) {
@@ -333,15 +283,24 @@ public static void main(String[] args) {
 
   int count = 0;
   while(sc.hasNext()) {
-    answers[count];
+    answers[count] = sc.next();
     count++;
   }
 }
 ```
-What did I do? I made a `while` loop that will keep executing, as long as there
-is something next left to read from the file. I use an integer variable called
-`count` to place each paragraph from the file into the array, in indices 0 through
-5.
+* Create functions to help with printing
+```Java
+static String[] answers = String[6];
+public static void main(String[] args) {
+  Console c = System.console();
+  Scanner sc = new Scanner(new BufferedReader(new FileReader("foreststory.txt")));
+  sc.useDelimiter("\n\n");
 
-Now, let's start making the actual game. First, let's make two functions that
-will hel
+  int count = 0;
+  while(sc.hasNext()) {
+    answers[count] = sc.next();
+    count++;
+  }
+}
+static void
+```
